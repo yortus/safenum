@@ -1,4 +1,6 @@
 import {expect} from 'chai';
+import {parseSafeFloat} from './parse-safe-float';
+import {parseSafeInt} from './parse-safe-int';
 import {tryParseSafeFloat} from './try-parse-safe-float';
 import {tryParseSafeInt} from './try-parse-safe-int';
 
@@ -148,6 +150,34 @@ describe('tryParseSafeFloat', () => {
         it(`${JSON.stringify(input)} ==> ${expected}`, () => {
             let actual = String(tryParseSafeFloat(input) ?? 'invalid');
             expect(actual).equals(expected);
+        });
+    }
+});
+
+
+describe('parseSafeInt', () => {
+    for (let [input, {int: expected}] of Object.entries(tests)) {
+        it(`${JSON.stringify(input)} ==> ${expected}`, () => {
+            if (expected === 'invalid') {
+                expect(() => parseSafeInt(input)).to.throw();                
+            }
+            else {
+                expect(String(tryParseSafeInt(input))).equals(expected);
+            }
+        });
+    }
+});
+
+
+describe('parseSafeFloat', () => {
+    for (let [input, {float: expected}] of Object.entries(tests)) {
+        it(`${JSON.stringify(input)} ==> ${expected}`, () => {
+            if (expected === 'invalid') {
+                expect(() => parseSafeFloat(input)).to.throw();                
+            }
+            else {
+                expect(String(parseSafeFloat(input))).equals(expected);
+            }
         });
     }
 });
