@@ -1,8 +1,8 @@
 # safenum
 
-Safer replacements for JavaScript's `parseInt` and `parseFloat` functions.
+Converting a string to a number using JavaScript's built-in `parseInt` or `parseFloat` functions may lead to silent failures. For example, invalid characters in the string may be silently ignored, or the resulting number may have less precision than the string representation. This might be fine for some applications, but in other cases an explicit error would be more useful.
 
-Conversions succeed only when the entire string is consumed during parsing, and the resulting number can be represented exactly as a JavaScript number. If the string contains additional characters, or if the resulting number loses any precision, then conversion fails.
+With all functions provided by `safenum`, conversions succeed only when the entire string is consumed during parsing, and the resulting number can be represented exactly as a JavaScript number. If the string contains additional characters, or if the resulting number loses any precision, then conversion fails.
 
 #### Installation
 
