@@ -1,4 +1,4 @@
-export function tryParseSafeInteger(rawNum: string): number | undefined {
+export function tryParseSafeInt(rawNum: string): number | undefined {
 
     // Check for an optional +/- sign, and ensure there is at least one character after the sign.
     let pos = 0;

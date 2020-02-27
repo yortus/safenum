@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import {tryParseSafeFloat} from './try-parse-safe-float';
-import {tryParseSafeInteger} from './try-parse-safe-integer';
+import {tryParseSafeInt} from './try-parse-safe-int';
 
 
 const INVALID = 'invalid';
@@ -133,10 +133,10 @@ const tests = {
 };
 
 
-describe('tryParseSafeInteger', () => {
+describe('tryParseSafeInt', () => {
     for (let [input, {int: expected}] of Object.entries(tests)) {
         it(`${JSON.stringify(input)} ==> ${expected}`, () => {
-            let actual = String(tryParseSafeInteger(input) ?? 'invalid');
+            let actual = String(tryParseSafeInt(input) ?? 'invalid');
             expect(actual).equals(expected);
         });
     }
