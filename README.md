@@ -53,3 +53,7 @@ npm test
 # run benchmarks
 npm run bench
 ```
+
+#### License
+
+MIT License. Copyright (c) 2020 Troy Gerwien
