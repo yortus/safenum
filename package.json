@@ -1,7 +1,7 @@
 {
     "name": "safenum",
     "version": "1.0.0",
-    "description": "",
+    "description": "Safer replacements for JavaScript's parseInt and parseFloat functions",
     "main": "dist/index.js",
     "types": "./dist/index.d.ts",
     "scripts": {
