@@ -1,5 +1,8 @@
 export function tryParseSafeFloat(rawNum: string): number | undefined {
 
+    // Ensure the input is a string.
+    if (typeof rawNum !== 'string') return undefined;
+
     // Use built-in float parser to get the result.
     let result = Number.parseFloat(rawNum);
 

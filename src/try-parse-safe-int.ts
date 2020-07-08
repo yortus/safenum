@@ -1,5 +1,8 @@
 export function tryParseSafeInt(rawNum: string): number | undefined {
 
+    // Ensure the input is a string.
+    if (typeof rawNum !== 'string') return undefined;
+
     // Check for an optional +/- sign, and ensure there is at least one character after the sign.
     let pos = 0;
     const len = rawNum.length;
