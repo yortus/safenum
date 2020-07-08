@@ -24,22 +24,22 @@ let num3 = parseSafeInt('9007199254740992');    // throws (number is not a SAFE_
 ```ts
 function parseSafeInt(rawNum: string): number
 ```
-Parses the string `rawNum` as an integer number. If parsing consumes the entire string and the resulting value is a [SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger), then the number is returned. Otherwise throws a `RangeError`.
+Parses the string `rawNum` as an integer number. If parsing consumes the entire string and the resulting value is a [SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger), then the number is returned, otherwise throws a `RangeError`. If `rawNum` is not a string, a `TypeError` is thrown.
 
 ```ts
 function parseSafeFloat(rawNum: string): number
 ```
-Parses the string `rawNum` as a floating point number. If parsing consumes the entire string and the resulting value can be represented with no loss of precision, then the number is returned. Otherwise throws a `RangeError`.
+Parses the string `rawNum` as a floating point number. If parsing consumes the entire string and the resulting value can be represented with no loss of precision, then the number is returned, otherwise throws a `RangeError`. If `rawNum` is not a string, a `TypeError` is thrown.
 
 ```ts
 function tryParseSafeInt(rawNum: string): number
 ```
-Parses the string `rawNum` as an integer number. If parsing consumes the entire string and the resulting value is a [SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger), then the number is returned. Otherwise returns `undefined`.
+Parses the string `rawNum` as an integer number. If parsing consumes the entire string and the resulting value is a [SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger), then the number is returned, otherwise returns `undefined`. Also returns `undefined` if `rawNum` is not a string.
 
 ```ts
 function tryParseSafeFloat(rawNum: string): number
 ```
-Parses the string `rawNum` as a floating point number. If parsing consumes the entire string and the resulting value can be represented with no loss of precision, then the number is returned. Otherwise returns `undefined`.
+Parses the string `rawNum` as a floating point number. If parsing consumes the entire string and the resulting value can be represented with no loss of precision, then the number is returned, otherwise returns `undefined`. Also returns `undefined` if `rawNum` is not a string.
 
 #### Development
 

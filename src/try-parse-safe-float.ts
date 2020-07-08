@@ -1,3 +1,8 @@
+/**
+ * Parses the string `rawNum` as a floating point number. If parsing consumes the entire string and the resulting value
+ * can be represented with no loss of precision, then the number is returned, otherwise returns `undefined`. Also
+ * returns `undefined` if `rawNum` is not a string.
+ */
 export function tryParseSafeFloat(rawNum: string): number | undefined {
 
     // Ensure the input is a string.

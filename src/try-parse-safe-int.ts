@@ -1,3 +1,8 @@
+/**
+ * Parses the string `rawNum` as an integer number. If parsing consumes the entire string and the resulting value is a
+ * [SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger),
+ * then the number is returned, otherwise returns `undefined`. Also returns `undefined` if `rawNum` is not a string.
+ */
 export function tryParseSafeInt(rawNum: string): number | undefined {
 
     // Ensure the input is a string.
