@@ -133,10 +133,27 @@ const tests = {
     '0000000000100000000000000.10000': {int: INVALID, float: '100000000000000.1'},
     '0000000001000000000000000.10000': {int: INVALID, float: '1000000000000000.1'},
 };
+const badInputs = [
+    0,
+    123,
+    3.14,
+    false,
+    NaN,
+    new Date(),
+    /abc/g,
+    {foo: 'bar'},
+    [1, 2, 'x', 'y'],
+];
+
+
+const allTestInputOutputPairs = [
+    ...Object.entries(tests),
+    ...badInputs.map(bi => [bi as any, {int: INVALID, float: INVALID}] as const),
+];
 
 
 describe('tryParseSafeInt', () => {
-    for (let [input, {int: expected}] of Object.entries(tests)) {
+    for (let [input, {int: expected}] of allTestInputOutputPairs) {
         it(`${JSON.stringify(input)} ==> ${expected}`, () => {
             let actual = String(tryParseSafeInt(input) ?? 'invalid');
             expect(actual).equals(expected);
@@ -146,7 +163,7 @@ describe('tryParseSafeInt', () => {
 
 
 describe('tryParseSafeFloat', () => {
-    for (let [input, {float: expected}] of Object.entries(tests)) {
+    for (let [input, {float: expected}] of allTestInputOutputPairs) {
         it(`${JSON.stringify(input)} ==> ${expected}`, () => {
             let actual = String(tryParseSafeFloat(input) ?? 'invalid');
             expect(actual).equals(expected);
@@ -156,7 +173,7 @@ describe('tryParseSafeFloat', () => {
 
 
 describe('parseSafeInt', () => {
-    for (let [input, {int: expected}] of Object.entries(tests)) {
+    for (let [input, {int: expected}] of allTestInputOutputPairs) {
         it(`${JSON.stringify(input)} ==> ${expected}`, () => {
             if (expected === 'invalid') {
                 expect(() => parseSafeInt(input)).to.throw();                
@@ -170,7 +187,7 @@ describe('parseSafeInt', () => {
 
 
 describe('parseSafeFloat', () => {
-    for (let [input, {float: expected}] of Object.entries(tests)) {
+    for (let [input, {float: expected}] of allTestInputOutputPairs) {
         it(`${JSON.stringify(input)} ==> ${expected}`, () => {
             if (expected === 'invalid') {
                 expect(() => parseSafeFloat(input)).to.throw();                
