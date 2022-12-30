@@ -33,7 +33,7 @@
         "@types/node": "^10.17.14",
         "benchmark": "^2.1.4",
         "chai": "^4.2.0",
-        "mocha": "^7.0.1",
+        "mocha": "^10.2.0",
         "ts-node": "^8.6.2",
         "typescript": "^3.7.5"
     },
